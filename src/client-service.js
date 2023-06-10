@@ -23,28 +23,48 @@ const fetchIsso = async () => {
   });
 }
 
-const edit = (champ) => { 
-  var modal = document.getElementsByClassName("modal")[0];
-  modal.style.display = "flex";
+const edit = (id) => { 
 
-  const champFromLocalStorage = JSON.parse(localStorage.getItem(champ));
+  console.log("Id: " + id)
+
+  let modal = document.getElementsByClassName("modal")[0];
+  let champFromLocalStorage = JSON.parse(localStorage.getItem(id));
 
   let inputName = document.querySelector(".input-edit-name")
-  inputName.value = champFromLocalStorage.name;
   let inputImage = document.querySelector(".input-edit-img")
-  inputImage.value = champFromLocalStorage.img;
   let championImage = document.querySelector(".champion-img")
   let imgElement = document.createElement("img"); 
-  imgElement.src=`${champFromLocalStorage.img}` 
+
+  modal.style.display = "flex";
+
+  inputName.value = champFromLocalStorage.name;
+  inputImage.value = champFromLocalStorage.img;
+  imgElement.src=`${champFromLocalStorage.img}`
   championImage.appendChild(imgElement)
 
-  const closeBtn = document.querySelector(".close");
+  console.log("Valores: " + champFromLocalStorage)
+
+  let closeBtn = document.querySelector(".close");
   closeBtn.addEventListener('click', () => {
     modal.style.display = "none";
     championImage.innerHTML = ''
+    champFromLocalStorage = ''
+    id = ''
+  });
+
+  let editBtn = document.querySelector(".edit-btn");
+  editBtn.addEventListener('click', () => {
+    let champFromLocalStorage2 = JSON.parse(localStorage.getItem(id));
+
+    champFromLocalStorage2.name = inputName.value
+    champFromLocalStorage2.img = inputImage.value
+
+    localStorage.setItem(id, JSON.stringify(champFromLocalStorage2));
+    modal.style.display = "none";
+    championImage.innerHTML = ''
+    id = ''
   });
 }
-
 
 // Inserts Champions
 const insertChamp = (value) => {
@@ -91,6 +111,7 @@ const send = () => {
 }
 
 // Starting with Default
+
 fetchIsso();
 insertChamp('');
 localStorage.clear();
