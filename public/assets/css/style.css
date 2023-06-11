@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Ubuntu:wght@300&display=swap');
+
+
 * {
   padding: 0;
   margin: 0;
-  background-color: whitesmoke;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background-image: url("../images/background.avif");
 }
 
 .container {
@@ -15,8 +23,22 @@
 }
 
 .card {
-  background-color: #47A992;
+  width: 100ppx;
+  height: 100ppx;
+  background-color: transparent;
+  
+  width: 175px;
+  margin: 5px;
 
+
+}
+.card-block {
+  width: 175px;
+}
+
+.card-header {
+  display: flex;
+  text-align: center;
 }
 .header-title {
   background-color: #7A3E3E;
@@ -28,12 +50,37 @@
 main {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 14.5vh ;
+  
+  justify-content: space-between;  
 
-  background-color: aquamarine;
+  padding: 0 14.5vh ;
+  background-image: url("../images/background.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
+.edit-button {
+  width: 60px;
+  height: 30px;
+  
+  background-color: transparent;
+}
 
+.remove-button {
+  width: 40px;
+  background-color: transparent;
+}
+
+.edit-button:hover {
+  border-radius: 15px;
+  background-color: gray;
+}
+
+.remove-button:hover {
+  border-radius: 15px;
+  background-color: gray;
+}
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */

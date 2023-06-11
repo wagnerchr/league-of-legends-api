@@ -90,18 +90,26 @@ const insertChamp = (value) => {
 
     divElement.innerHTML = `
       <div class="card">
-        <h3 class="card">${champFromLocalStorage.name}</h3>
-        <img class="card" src="${champFromLocalStorage.img}"/>
-        <button class="editButton">Edit</button>
-        <button class="removeButton">Excluir</button>
+        <div class="card-header"> 
+          <h3 class="card-block">${champFromLocalStorage.name}</h3>
+          <div class="edit-button"> </div>
+            <img class="edit-button" src="../public/assets/images/edit.png"/>
+          <img class="remove-button" src="../public/assets/images/remove.png"/>
+        </div>
+
+        <img class="card-block" src="${champFromLocalStorage.img}"/>
+
       </div>
     `;
 
-    const editButton = divElement.querySelector(".editButton");
-    editButton.addEventListener("click", edit.bind(null, i));
+    // <button class="editButton">Edit</button>
+    // <button class="removeButton">Excluir</button>
 
-    const removeButton = divElement.querySelector(".removeButton");
-    removeButton.addEventListener("click", remove.bind(null, i));
+    // const editButton = divElement.querySelector(".editButton");
+    // editButton.addEventListener("click", edit.bind(null, i));
+
+    // const removeButton = divElement.querySelector(".removeButton");
+    // removeButton.addEventListener("click", remove.bind(null, i));
 
     mainTag.appendChild(divElement); 
     }  
