@@ -66,13 +66,25 @@ const edit = (id) => {
   });
 }
 
+const remove = (id) => {
+  console.log("Excluir ..." + id)
+  let champFromLocalStorage = JSON.parse(localStorage.getItem(id));
+  console.log("Objeto sendo excluido " + champFromLocalStorage.name)
+  console.log("Objeto: " + champFromLocalStorage)
+
+  localStorage.removeItem(id);
+}
+
 // Inserts Champions
 const insertChamp = (value) => {
   mainTag.innerHTML = ''
   for (let i = 1; i < localStorage.length + 1; i++) {
     champFromLocalStorage = JSON.parse(localStorage.getItem(i));
+    if(champFromLocalStorage != null) {
 
-  if(champFromLocalStorage.name.toLowerCase().startsWith(value.toLowerCase())) {
+  
+
+  if(champFromLocalStorage.name.toLowerCase().startsWith(value.toLowerCase()) && champFromLocalStorage.name != null) {
     const divElement = document.createElement('div');
     divElement.classList.add("card");
 
@@ -81,13 +93,18 @@ const insertChamp = (value) => {
         <h3 class="card">${champFromLocalStorage.name}</h3>
         <img class="card" src="${champFromLocalStorage.img}"/>
         <button class="editButton">Edit</button>
+        <button class="removeButton">Excluir</button>
       </div>
     `;
 
     const editButton = divElement.querySelector(".editButton");
     editButton.addEventListener("click", edit.bind(null, i));
 
-    mainTag.appendChild(divElement);    
+    const removeButton = divElement.querySelector(".removeButton");
+    removeButton.addEventListener("click", remove.bind(null, i));
+
+    mainTag.appendChild(divElement); 
+    }  
   }}
 }
 
@@ -112,7 +129,7 @@ const send = () => {
 
 // Starting with Default
 
+
 fetchIsso();
 insertChamp('');
 localStorage.clear();
-
