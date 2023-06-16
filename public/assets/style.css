@@ -1,26 +1,80 @@
 * {
   padding: 0;
   margin: 0;
-  background-color: whitesmoke;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(177.9deg, rgb(58, 62, 88) 3.6%, rgb(119, 127, 148) 105.8%);
+}
+
 
 .container {
-  background-color: #47A992;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1000px;
 }
 
+
+
 .header {
-  background-color: #7A3E3E;
+  display: absolute;
+  flex-direction: column;
+  text-align: center;
+  background-color: #1f5971;  
+  color: #fffffa;
+  
+  width: 100%;
+  height: 150px;
   padding: 20px 30px;
-  color: #EEEEEE;
+
+}
+
+.header > input {
+  width: 110px;
 }
 
 .card {
-  background-color: #47A992;
-
+  text-align: center;
+  color: #5e645a;
+  margin: 10px;
 }
-.header-title {
-  background-color: #7A3E3E;
+
+.card > img {
+  margin: 0;
   
+}
+
+img {
+  --s: 250px;   /*  size */
+  --b: 4px;     /* border */
+  --g: 0px;    /*  gap */
+  --c: #4ECDC4; /* the color */
+  
+  aspect-ratio: 1;
+  outline-offset: calc(var(--s)/-2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+img:hover {
+  outline: var(--b) solid var(--c);
+  outline-offset: var(--g);
+  transition: all .2s ease;
+}
+
+
+
+
+
+
+
+.card > h3 {
+  margin: 0;
 }
 
 
@@ -28,7 +82,9 @@
 main {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 14.5vh ;
+  justify-content: center;
+  width: auto;
 
-  background-color: aquamarine;
+  padding: 2px;
 }
+

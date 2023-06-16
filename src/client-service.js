@@ -1,5 +1,6 @@
 let mainTag = document.querySelector('main');
 
+
 fetch(`https://ddragon.leagueoflegends.com/cdn/11.11.1/data/en_US/champion.json`)
   .then(response => response.json())
   .then(data => {
@@ -28,9 +29,10 @@ fetch(`https://ddragon.leagueoflegends.com/cdn/11.11.1/data/en_US/champion.json`
       // Card
       divElement.innerHTML = `
       <div class="card">
-        <h3 class="card">${championName}</h3>
         <img class="card" src="${championImg}"/>
-      </div>
+        <h3 class="card">${championName}</h3>
+
+        </div>
       `
 
       mainTag.appendChild(divElement)
@@ -101,11 +103,31 @@ const send = () => {
   divElement.innerHTML = `
   <div class="card">
     <h3 class="card">${valueName}</h3>
-    <img class="card" src="${valueImg}"/>
+    <img class="card-img"  src="${valueImg}"/>
   </div>
   `
 
+  const cardImage = divElement.querySelector('.card-img');
+    
+  console.log('cardImage! ' + cardImage )
+  cardImage.addEventListener('mouseover', () => {
+      hooverImg(cardImage);
+  });
+
   mainTag.appendChild(divElement)
 
-  
 }
+
+const hooverImg = () => {
+  console.log("samdjasbhdsajkdsma")
+}
+
+// IMAGE MOUSE HOOVER ANIMATION :))))
+document.addEventListener('DOMContentLoaded', () => {
+
+let championImage = document.querySelector('.card-img') 
+  championImage.addEventListener('click', () => {
+    console.log("olha")
+  })
+});
+
