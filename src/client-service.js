@@ -1,6 +1,6 @@
 // Configs
 const apiUrl = 'https://ddragon.leagueoflegends.com/cdn/11.11.1/data/en_US/champion.json';
-let mainTag = document.querySelector('main');
+let cardList = document.querySelector('.card-list');
 
 // Starts App
 const fetchIsso = async () => {
@@ -77,41 +77,42 @@ const remove = (id) => {
 
 // Inserts Champions
 const insertChamp = (value) => {
-  mainTag.innerHTML = ''
+  
+  cardList.innerHTML = ''   // Reset cardList
+  // For champ in api do:
   for (let i = 1; i < localStorage.length + 1; i++) {
     champFromLocalStorage = JSON.parse(localStorage.getItem(i));
     if(champFromLocalStorage != null) {
 
-  
-
+  // Just show champs that are being search
   if(champFromLocalStorage.name.toLowerCase().startsWith(value.toLowerCase()) && champFromLocalStorage.name != null) {
-    const divElement = document.createElement('div');
-    divElement.classList.add("card");
+    
+    // Creating cards 
+    const cardElement = document.createElement('div');
+    cardElement.classList.add("card-list");
 
-    divElement.innerHTML = `
-      <div class="card">
-        <div class="card-header"> 
-          <h3 class="card-block">${champFromLocalStorage.name}</h3>
-          <div class="edit-button"> </div>
-            <img class="edit-button" src="../public/assets/images/edit.png"/>
-          <img class="remove-button" src="../public/assets/images/remove.png"/>
+    cardElement.innerHTML = `
+        <div class="card"> 
+          <div class="card-image">
+            <img src="${champFromLocalStorage.img}"/>
+            <button class="editButton">Edit</button>
+            <button class="removeButton">Excluir</button>
+          </div>
+          <h3>${champFromLocalStorage.name}</h3>
         </div>
-
-        <img class="card-block" src="${champFromLocalStorage.img}"/>
-
-      </div>
     `;
 
-    // <button class="editButton">Edit</button>
-    // <button class="removeButton">Excluir</button>
+    const editButton = cardElement.querySelector(".editButton");
+    const removeButton = cardElement.querySelector(".removeButton");
 
-    // const editButton = divElement.querySelector(".editButton");
-    // editButton.addEventListener("click", edit.bind(null, i));
+    editButton.addEventListener("click", edit.bind(null, i));
+    removeButton.addEventListener("click", remove.bind(null, i));
 
-    // const removeButton = divElement.querySelector(".removeButton");
-    // removeButton.addEventListener("click", remove.bind(null, i));
 
-    mainTag.appendChild(divElement); 
+    cardList.appendChild(cardElement); 
+    const container = document.querySelector(".container");
+    container.appendChild(cardList)
+
     }  
   }}
 }

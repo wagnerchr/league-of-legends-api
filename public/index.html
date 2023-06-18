@@ -4,49 +4,55 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+
+
+
   <title>Document</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <h1 class="header-title">League of Legends API</h1>
-      <input type="text" id="input-search" name="fname" placeholder="PESQUISE" onkeyup="search(value)">><br><br>
 
-      <input type="text" id="input-name" name="fname" placeholder="Nome">
-      <input type="text" id="input-img" name="fname" placeholder="Imagem">
-      <button onclick="send()">Enviar</button>
+  <header class="header">
+    <h1>League of Legends API</h1>
+    <div class="header-controls">
+      <input type="text" id="input-search" name="fname" placeholder="PESQUISE" onkeyup="search(value)"><br><br>
 
-      <br>
-      <br>
-
-      <input type="text" id="input-edit-name" name="fname" placeholder="Editar Nome">
-      <input type="text" id="input-edit-img" name="fname" placeholder="Editar Imagem">
-
-    
-<br>
-<br>
-      <button>Limpar tudo</button>
-    </header>
-    <main>
-    </main>
-
-    <div class="modal">
-      <div class="modal-content">
-        <div class="edit-body">
-          <input type="text" class="input-edit-name" name="fname" >
-          <input type="text" class="input-edit-img" name="fname" >
-        </div>
-      
-      <div class="champion-img"></div>
-
-      <span class="close"> X </span>
-      <button class="edit-btn" style="width: 30px;"> EDITAR </button>
+      <div class="header-controls-insert">
+        Inserir novo Campeão
+        <input type="text" id="input-name" name="fname" placeholder="Nome">
+        <input type="text" id="input-img" name="fname" placeholder="Imagem">
+        <br>
+        <button onclick="send()">Enviar</button>
       </div>
     </div>
+  </header>
 
-
+  <div class="container">
+    <div class="card-list">
+      <!-- Cards Will be here -->
+    </div>
   </div>
+
+  <!-- Modal  -->
+  <div class="modal">
+    <div class="modal-content">
+      <div class="edit-body">
+        <input type="text" class="input-edit-name" name="fname" >
+        <input type="text" class="input-edit-img" name="fname" >
+      </div>
+    
+    <div class="champion-img"></div>
+
+    <span class="close"> X </span>
+    <button class="edit-btn" style="width: 30px;"> EDITAR </button>
+    </div>
+  </div>
+
   <script src="../src/client-service.js"></script>
 </body>
 </html>
