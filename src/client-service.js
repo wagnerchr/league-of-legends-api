@@ -63,6 +63,8 @@ const edit = (id) => {
     modal.style.display = "none";
     championImage.innerHTML = ''
     id = ''
+
+    insertChamp('');
   });
 }
 
@@ -73,6 +75,7 @@ const remove = (id) => {
   console.log("Objeto: " + champFromLocalStorage)
 
   localStorage.removeItem(id);
+  insertChamp("");
 }
 
 // Inserts Champions
@@ -108,11 +111,9 @@ const insertChamp = (value) => {
     editButton.addEventListener("click", edit.bind(null, i));
     removeButton.addEventListener("click", remove.bind(null, i));
 
-
     cardList.appendChild(cardElement); 
     const container = document.querySelector(".container");
     container.appendChild(cardList)
-
     }  
   }}
 }

@@ -139,28 +139,15 @@ img:hover {
   left: 45px;
 }
 
-.edit-button {
-  width: 60px;
-  height: 30px;
-  
-  background-color: transparent;
-}
-
-.remove-button {
-  width: 40px;
-  background-color: transparent;
-}
-
-.edit-button:hover {
+.card-image button:hoover {
   border-radius: 15px;
   background-color: gray;
 }
 
-.remove-button:hover {
-  border-radius: 15px;
-  background-color: gray;
-}
-/* The Modal (background) */
+/* 
+  Modal
+*/
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -177,12 +164,54 @@ img:hover {
 /* Modal Content/Box */
 .modal-content {
   display: flex;
-  flex-direction: space-between;
-  background-color: #fefefe;
+  flex-direction: column;
+
+  background-color: #5a5c4a;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
+  width: 400px; /* Could be more or less, depending on screen size */
+  height: auto;
+}
+
+.edit-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #314335;
+  width: 100%;
+  height: 200px;
+
+}
+
+.edit-body img {
+  margin: 25px;
+}
+
+.edit-body-input {
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  height: 120px;
+}
+
+.edit-body-input input {
+  margin: 2px;
+}
+
+.modal-content button {
+  width: 100px;
+}
+
+input {
+  border: 2px solid gray;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.close {
+  margin-left: auto;
 }
 
 /* The Close Button */
@@ -200,8 +229,3 @@ img:hover {
   /* cursor: pointer; */
 } 
 
-.edit-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
