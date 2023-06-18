@@ -75,7 +75,7 @@ const remove = (id) => {
   console.log("Objeto: " + champFromLocalStorage)
 
   localStorage.removeItem(id);
-  insertChamp("");
+  insertChamp('');
 }
 
 // Inserts Champions
@@ -137,9 +137,11 @@ const send = () => {
   insertChamp('');
 }
 
+// Mouse enter mouse leave
+
+
+
 // Starting with Default
-
-
 fetchIsso();
 insertChamp('');
 localStorage.clear();

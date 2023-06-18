@@ -1,15 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Ubuntu:wght@300&display=swap');
 
-
 * {
-  cursor: url('../images/cursor.png'), auto;;
+  cursor: url('../images/cursor.png'), auto;
 
   padding: 0;
   margin: 0;
   font-family: 'Inter', sans-serif;
-  /* font-family: 'Ubuntu', sans-serif;
-  font-family: 'Poppins', sans-serif; */
-
 }
 
 body {
@@ -19,49 +15,80 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  /* background: linear-gradient(177.9deg, rgb(58, 62, 88) 3.6%, rgb(119, 127, 148) 105.8%); */
 }
 
+input {
+  border: 2px solid gray;
+  border-radius: 4px;
+  padding: 5px;
+}
 
-
-/* Nav Bar */
+/* 
+  Nav Bar 
+*/
 .header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   width: 100%;
-  height: 200px;
-
+  height: 140px;
   text-align: center;
-  
+  align-items: center;
+  justify-content: center;
+
   background-color: rgba(0, 0, 0, 0.5);
+
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
-
-
-  background-position: center;
-    background-repeat: no-repeat;
-
-
   color: #fffffa;
 }
 
-.header-controls {
-  display: flex;
-  padding-left: 42.8vh;
-  flex-direction: column;
-  justify-content: start;
+.header input {
+  width: 200px;
+  height: 20px;
 }
 
-.header-controls-insert {
+.header-logo {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 120px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo input {
+    background-color: white;
+    background-image: url('../images/search-icon.png');
+    background-position: 0px -5px;
+    background-repeat: no-repeat;
+    
+
+    padding-left: 40px;
+}
+
+.header-logo h1 {
+  margin-top: 15px;
+}
+
+.header-logo input {
+  margin-top: 45px;
+}
+
+.header-controls {
   width: 200px;
   height: 120px;
   text-align: start;
 
+  margin-right: 740px;
+  margin-top: 40px;
 }
-.header-controls > input {
-  width: 200px;
+.header-controls button {
+  width: min-content;
 }
 
+
 /* Content */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -96,16 +123,13 @@ img:hover {
   transition: all .2s ease;
 }
 
-
 .card {
   display: flex;
   flex-direction: column;
   width:100x;
   height: 100ppx;
   margin: 20px;
-
   text-align: center;
-
   background-color: transparent;
 }
 
@@ -181,7 +205,6 @@ img:hover {
   background-color: #314335;
   width: 100%;
   height: 200px;
-
 }
 
 .edit-body img {
@@ -204,11 +227,7 @@ img:hover {
   width: 100px;
 }
 
-input {
-  border: 2px solid gray;
-  border-radius: 4px;
-  padding: 5px;
-}
+
 
 .close {
   margin-left: auto;
