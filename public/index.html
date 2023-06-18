@@ -20,15 +20,17 @@
   <header class="header">
     <div class="header-logo">
       <h1>League of Legends API</h1>
-      <input type="text" id="input-search" name="fname" placeholder="Pesquise um campeão" onkeyup="search(value)">
+      <div class="header-controls">
+        <input type="text" id="input-search" name="fname" placeholder="Pesquise um campeão" onkeyup="search(value)">
+        <button onclick="add()"> + </button> 
+      </div>
     </div>
-    <div class="header-controls">
+    <!-- <div class="header-controls">
         <p> Inserir novo Campeão</p>
         <input type="text" id="input-name" name="fname" placeholder="Nome">
         <input type="text" id="input-img" name="fname" placeholder="Imagem">
         <button onclick="send()">Enviar</button>
-    </div>
-
+    </div> -->
   </header>
 
   <div class="container">
@@ -42,7 +44,6 @@
 
     <div class="modal-content">
       <span class="close"> X </span>
-
 
     <div class="edit-body">
       <div class="champion-img"></div>

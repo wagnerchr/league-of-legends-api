@@ -61,8 +61,6 @@ input {
     background-image: url('../images/search-icon.png');
     background-position: 0px -5px;
     background-repeat: no-repeat;
-    
-
     padding-left: 40px;
 }
 
@@ -74,18 +72,22 @@ input {
   margin-top: 45px;
 }
 
-.header-controls {
+.edit-btn {
+  background-color: aliceblue;
+}
+
+/* .header-controls {
   width: 200px;
   height: 120px;
   text-align: start;
 
   margin-right: 740px;
   margin-top: 40px;
-}
+} 
 .header-controls button {
   width: min-content;
 }
-
+*/
 
 /* Content */
 
@@ -226,8 +228,6 @@ img:hover {
 .modal-content button {
   width: 100px;
 }
-
-
 
 .close {
   margin-left: auto;

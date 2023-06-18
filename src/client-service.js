@@ -23,6 +23,51 @@ const fetchIsso = async () => {
   });
 }
 
+const add = () => {
+  let modal = document.getElementsByClassName("modal")[0];
+  let inputName = document.querySelector(".input-edit-name")
+  let inputImage = document.querySelector(".input-edit-img")
+  let championImage = document.querySelector(".champion-img")
+  let imgElement = document.createElement("img"); 
+  
+  inputName.value = ''
+  inputImage.value = ''
+
+  inputImage.addEventListener('input', () => {
+    console.log("entrou auqi")
+    imgElement.src = `${inputImage.value}`
+    championImage.appendChild(imgElement)
+  })
+  
+  let editBtn = document.querySelector(".edit-btn");
+    editBtn.textContent = "Adicionar campeão"
+
+  modal.style.display = "flex";
+
+  let closeBtn = document.querySelector(".close");
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = "none";
+    championImage.innerHTML = ''
+    championImage.innerHTML = ''
+  });
+
+  editBtn.addEventListener('click', () => {
+    const champName = inputName.value,
+          champImg = inputImage.value
+    
+          const champ = {
+      name: champName,
+      img: champImg
+    }  
+
+    send(champ);  
+    championImage.innerHTML = ''
+    imgElement = ''
+    modal.style.display = "none";
+  });
+}
+
+
 const edit = (id) => { 
 
   console.log("Id: " + id)
@@ -107,9 +152,13 @@ const insertChamp = (value) => {
 
     const editButton = cardElement.querySelector(".editButton");
     const removeButton = cardElement.querySelector(".removeButton");
+    const imgDiv = cardElement.querySelector(".card-image");
 
     editButton.addEventListener("click", edit.bind(null, i));
     removeButton.addEventListener("click", remove.bind(null, i));
+
+    imgDiv.addEventListener("mouseenter", mouseEnter.bind(null, imgDiv));
+
 
     cardList.appendChild(cardElement); 
     const container = document.querySelector(".container");
@@ -118,27 +167,42 @@ const insertChamp = (value) => {
   }}
 }
 
+
+
 const search = async (value) => {
   insertChamp(value);
 }
 
-const send = () => {
-  const inputName = document.getElementById('input-name');
-  const inputImg = document.getElementById('input-img');
-  const valueName = inputName.value,
-        valueImg = inputImg.value;
-  const champ = {
-    name: valueName,
-    img: valueImg
-  }  
+
+
+const send = (champ) => {
+  // const inputName = document.getElementById('input-name');
+  // const inputImg = document.getElementById('input-img');
+  // const valueName = inputName.value,
+  //       valueImg = inputImg.value;
+  // const champ = {
+  //   name: valueName,
+  //   img: valueImg
+  // }  
+
+  console.log("Sim, recebo o champ: \n " + champ)
+
   let key = localStorage.length + 1
   localStorage.setItem(key, JSON.stringify(champ));
 
   insertChamp('');
 }
 
-// Mouse enter mouse leave
+const mouseEnter = (imgDiv) => {
+  
+  imgDiv.addEventListener('mouseenter', () => {
+  });
 
+  imgDiv.addEventListener('mouseleave', () => {
+    imgDiv.classList.remove('hover');
+  });
+
+}
 
 
 // Starting with Default
