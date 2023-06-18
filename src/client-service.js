@@ -24,12 +24,16 @@ const fetchIsso = async () => {
 }
 
 const add = () => {
+
   let modal = document.getElementsByClassName("modal")[0];
+
   let inputName = document.querySelector(".input-edit-name")
   let inputImage = document.querySelector(".input-edit-img")
+  
   let championImage = document.querySelector(".champion-img")
   let imgElement = document.createElement("img"); 
   
+  // Removing text if exists
   inputName.value = ''
   inputImage.value = ''
 
@@ -40,32 +44,46 @@ const add = () => {
   })
   
   let editBtn = document.querySelector(".edit-btn");
-    editBtn.textContent = "Adicionar campeão"
+  let closeBtn = document.querySelector(".close");
+  editBtn.textContent = "Adicionar campeão"
 
   modal.style.display = "flex";
 
-  let closeBtn = document.querySelector(".close");
+  closeBtn.removeEventListener('click', closeBtn);
   closeBtn.addEventListener('click', () => {
     modal.style.display = "none";
     championImage.innerHTML = ''
-    championImage.innerHTML = ''
   });
 
+  editBtn.removeEventListener('click', editBtn);
+
   editBtn.addEventListener('click', () => {
-    const champName = inputName.value,
-          champImg = inputImage.value
+    let champName = inputName.value,
+        champImg = inputImage.value
     
-          const champ = {
+    let champ = {
       name: champName,
       img: champImg
     }  
 
-    send(champ);  
+    send(champ)
+
     championImage.innerHTML = ''
     imgElement = ''
     modal.style.display = "none";
-  });
+  }, { once: true });
 }
+
+const send = (champ) => {
+ 
+  console.log("Sim, recebo o champ: \n " + champ)
+
+  let key = localStorage.length + 1
+  localStorage.setItem(key, JSON.stringify(champ));
+
+  insertChamp('');
+}
+
 
 
 const edit = (id) => { 
@@ -74,6 +92,10 @@ const edit = (id) => {
 
   let modal = document.getElementsByClassName("modal")[0];
   let champFromLocalStorage = JSON.parse(localStorage.getItem(id));
+
+  let editBtn = document.querySelector(".edit-btn");
+  editBtn.textContent = "Editar campeão"
+
 
   let inputName = document.querySelector(".input-edit-name")
   let inputImage = document.querySelector(".input-edit-img")
@@ -97,7 +119,6 @@ const edit = (id) => {
     id = ''
   });
 
-  let editBtn = document.querySelector(".edit-btn");
   editBtn.addEventListener('click', () => {
     let champFromLocalStorage2 = JSON.parse(localStorage.getItem(id));
 
@@ -175,23 +196,7 @@ const search = async (value) => {
 
 
 
-const send = (champ) => {
-  // const inputName = document.getElementById('input-name');
-  // const inputImg = document.getElementById('input-img');
-  // const valueName = inputName.value,
-  //       valueImg = inputImg.value;
-  // const champ = {
-  //   name: valueName,
-  //   img: valueImg
-  // }  
 
-  console.log("Sim, recebo o champ: \n " + champ)
-
-  let key = localStorage.length + 1
-  localStorage.setItem(key, JSON.stringify(champ));
-
-  insertChamp('');
-}
 
 const mouseEnter = (imgDiv) => {
   
