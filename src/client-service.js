@@ -5,8 +5,6 @@ const apiUrl = 'http://ddragon.leagueoflegends.com/cdn/13.12.1/data/en_US/champi
 
 let cardList = document.querySelector('.card-list');
 
-
-
 // Starts App
 const fetchIsso = async () => {
   const response = await fetch(apiUrl);
@@ -278,16 +276,16 @@ const insertChamp = (value) => {
     const editButton = cardElement.querySelector(".editButton");
     const removeButton = cardElement.querySelector(".removeButton");
     const infoButton = cardElement.querySelector(".infoButton");
-
-
-    const imgDiv = cardElement.querySelector(".card-image");
+  
+    const imgElement = cardElement.querySelector(".card-image");
 
     editButton.addEventListener("click", edit.bind(null, i));
     removeButton.addEventListener("click", remove.bind(null, i));
     infoButton.addEventListener("click", showInfo.bind(null, i));
+    imgElement.addEventListener("mouseenter", unhideElements.bind(this, i))
+    
 
 
-    imgDiv.addEventListener("mouseenter", mouseEnter.bind(null, imgDiv));
 
 
     cardList.appendChild(cardElement); 
@@ -297,24 +295,18 @@ const insertChamp = (value) => {
   }}
 }
 
-
 const search = async (value) => {
   insertChamp(value);
 }
 
+const unhideElements = (i , id) => {
 
-
-
-
-const mouseEnter = (imgDiv) => {
+  const divElement = event.target;
+  const divButtons = divElement.querySelectorAll('button');
+  divButtons.forEach(button => {
+    button.style.zIndex = 1;
+  })
   
-  imgDiv.addEventListener('mouseenter', () => {
-  });
-
-  imgDiv.addEventListener('mouseleave', () => {
-    imgDiv.classList.remove('hover');
-  });
-
 }
 
 

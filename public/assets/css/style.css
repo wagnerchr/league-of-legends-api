@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Ubuntu:wght@300&display=swap');
 
-
-
-
 * {
   cursor: url('../images/cursor.png'), auto;
 
@@ -13,6 +10,7 @@
 
 body {
   background-image: url('../images/background.jpg');
+  background-attachment: fixed;
 
   display: flex;
   flex-direction: column;
@@ -126,8 +124,10 @@ img:hover {
   outline: var(--b) solid var(--c);
   outline-offset: var(--g);
   transition: all .2s ease;
+
 }
 
+/*  */
 .card {
   display: flex;
   flex-direction: column;
@@ -138,12 +138,18 @@ img:hover {
   background-color: transparent;
 }
 
+.card:hover {
+  transform:scale(1.2);
+  transition: all .2s ease;
+}
+
 .card h3 {
   color: #fffffa
 }
 
 .card button {
   width: min-content;
+  z-index: -1;
 }
 
 .card-list {
@@ -171,6 +177,7 @@ img:hover {
   bottom: 0;
   right: 0px;
 }
+
 
 
 /* Info Button */
