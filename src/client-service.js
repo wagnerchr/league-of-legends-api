@@ -282,7 +282,9 @@ const insertChamp = (value) => {
     editButton.addEventListener("click", edit.bind(null, i));
     removeButton.addEventListener("click", remove.bind(null, i));
     infoButton.addEventListener("click", showInfo.bind(null, i));
-    imgElement.addEventListener("mouseenter", unhideElements.bind(this, i))
+
+    imgElement.addEventListener("mouseenter", unhideElements.bind())
+    imgElement.addEventListener("mouseleave", hideElements.bind());
     
 
 
@@ -300,13 +302,19 @@ const search = async (value) => {
 }
 
 const unhideElements = (i , id) => {
-
   const divElement = event.target;
   const divButtons = divElement.querySelectorAll('button');
   divButtons.forEach(button => {
     button.style.zIndex = 1;
   })
-  
+}
+
+const hideElements = () => {
+  const divElement = event.target;
+  const divButtons = divElement.querySelectorAll('button');
+  divButtons.forEach(button => {
+    button.style.zIndex = -1;
+  })
 }
 
 
